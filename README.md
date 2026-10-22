@@ -10,10 +10,10 @@ Application React pour visualiser les donnees de participation aux Jeux Olympiqu
 - **Routing :** React Router v7 en mode Data Router
 - **Tests :** Jest + React Testing Library
 
-## Prerequis
+## Prérequis
 
-- **Node.js** 22.x ou superieur
-- **npm** 10.x ou superieur
+- **Node.js** 22.x ou supérieur
+- **npm** 10.x ou supérieur
 
 ## Installation
 
@@ -25,14 +25,14 @@ npm install
 
 ## Scripts disponibles
 
-| Commande | Description |
-|---|---|
-| `npm run dev` | Serveur de developpement (port 5173) |
-| `npm run build` | Verification TypeScript + build production (`dist/`) |
-| `npm run preview` | Apercu du build de production |
-| `npm test` | Lancer les tests |
-| `npm run test:watch` | Tests en mode watch |
-| `npm run test:coverage` | Tests avec rapport de couverture |
+| Commande                | Description                                          |
+| ----------------------- | ---------------------------------------------------- |
+| `npm run dev`           | Serveur de developpement (port 5173)                 |
+| `npm run build`         | Verification TypeScript + build production (`dist/`) |
+| `npm run preview`       | Apercu du build de production                        |
+| `npm test`              | Lancer les tests                                     |
+| `npm run test:watch`    | Tests en mode watch                                  |
+| `npm run test:coverage` | Tests avec rapport de couverture                     |
 
 ## Structure du projet
 
@@ -87,10 +87,10 @@ Le projet utilise le **Data Router** de React Router v7. Les donnees sont charge
 
 Les routes sont definies dans `src/router.tsx` :
 
-| Route | Page | Loader |
-|---|---|---|
-| `/` | `Home` | `olympicLoader` (charge les donnees olympiques) |
-| `*` | `NotFound` | - |
+| Route | Page       | Loader                                          |
+| ----- | ---------- | ----------------------------------------------- |
+| `/`   | `Home`     | `olympicLoader` (charge les donnees olympiques) |
+| `*`   | `NotFound` | -                                               |
 
 ### Modele de donnees
 
