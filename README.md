@@ -1,6 +1,6 @@
 # Olympic Participation Tracker
 
-Application React pour visualiser les donnees de participation aux Jeux Olympiques, construite avec React 19, TypeScript, Vite et Tailwind CSS.
+Application React pour visualiser les données de participation aux Jeux Olympiques, construite avec React 19, TypeScript, Vite et Tailwind CSS.
 
 ## Tech Stack
 
@@ -40,7 +40,7 @@ npm install
 p6-dfsjs-frontend/
 ├── public/
 │   └── mock/
-│       └── olympic.json            # Donnees mock (5 pays, 3 participations chacun)
+│       └── olympic.json            # Données mock (5 pays, 3 participations chacun)
 ├── src/
 │   ├── main.tsx                    # Point d'entree React 19
 │   ├── App.tsx                     # Montage du RouterProvider
@@ -50,7 +50,7 @@ p6-dfsjs-frontend/
 │   │   ├── Home.tsx                # Page d'accueil (liste des participations)
 │   │   └── NotFound.tsx            # Page 404
 │   ├── services/
-│   │   └── olympicService.ts       # Service de donnees + loader de route
+│   │   └── olympicService.ts       # Service de données + loader de route
 │   └── types/
 │       └── olympic.ts              # Interfaces TypeScript (Olympic, Participation)
 ├── tests/
@@ -76,12 +76,12 @@ Pages (Composants UI)
     ↓ useLoaderData()
 Router (Data Router + Loaders)
     ↓ loader()
-Services (Fetch des donnees)
+Services (Fetch des données)
     ↓
-Donnees (mock JSON)
+Données (mock JSON)
 ```
 
-Le projet utilise le **Data Router** de React Router v7. Les donnees sont chargees par un `loader` **avant** le rendu du composant, puis accessibles via `useLoaderData<T>()`.
+Le projet utilise le **Data Router** de React Router v7. Les données sont chargees par un `loader` **avant** le rendu du composant, puis accessibles via `useLoaderData<T>()`.
 
 ### Routes
 
@@ -89,10 +89,10 @@ Les routes sont definies dans `src/router.tsx` :
 
 | Route | Page       | Loader                                          |
 | ----- | ---------- | ----------------------------------------------- |
-| `/`   | `Home`     | `olympicLoader` (charge les donnees olympiques) |
+| `/`   | `Home`     | `olympicLoader` (charge les données olympiques) |
 | `*`   | `NotFound` | -                                               |
 
-### Modele de donnees
+### Modele de données
 
 ```typescript
 interface Olympic {
@@ -110,7 +110,7 @@ interface Participation {
 }
 ```
 
-### Donnees mock
+### Données mock
 
 5 pays avec 3 participations chacun (Londres 2012, Rio 2016, Tokyo 2020) :
 France, United States, Germany, China, Great Britain.
@@ -121,7 +121,7 @@ France, United States, Germany, China, Great Britain.
 npm test
 ```
 
-Les tests utilisent `createMemoryRouter` avec `hydrationData` pour injecter les donnees directement sans passer par le loader, ce qui evite les dependances aux Web APIs dans jsdom.
+Les tests utilisent `createMemoryRouter` avec `hydrationData` pour injecter les données directement sans passer par le loader, ce qui evite les dependances aux Web APIs dans jsdom.
 
 ## License
 
