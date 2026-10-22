@@ -39,6 +39,9 @@ jobs:
     needs: test
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.semantic.outputs.new_release_published }}
+      version: ${{ steps.semantic.outputs.new_release_version }}
     permissions:
       contents: write
       issues: write
@@ -50,6 +53,7 @@ jobs:
           fetch-depth: 0
 
       - name: Semantic release
+        id: semantic
         uses: cycjimmy/semantic-release-action@v8
         with:
           extra_plugins: |
@@ -58,7 +62,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build:
-    needs: test
+    needs: [test, release]
+    if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -82,6 +87,7 @@ jobs:
           tags: |
             type=sha,prefix={{branch}}-,enable=${{ github.event_name != 'pull_request' }}
             type=ref,event=pr
+            type=raw,value=${{ needs.release.outputs.version }},enable=${{ needs.release.outputs.published == 'true' }}
 
       - name: Build and push
         uses: docker/build-push-action@v7
